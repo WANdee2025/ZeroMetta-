@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Sarabun', 'Helvetica', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        /* Main Content Style */
+        .container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 90%;
+        }
+        
+        #text-th {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        #text-en {
+            font-size: 2.5rem;
+            color: #cccccc;
+            font-weight: 300;
+        }
+
+        .fade {
+            transition: opacity 2s ease-in-out;
+            opacity: 0;
+        }
+
+        /* Footer Style */
+        footer {
+            padding-bottom: 30px;
+            font-size: 1rem;
+            color: #444; /* สีเทาเข้มแบบจางๆ */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container fade" id="content">
+        <div id="text-th"></div>
+        <div id="text-en"></div>
+    </div>
+
+    <footer>
+        Ekajayo Upasako
+    </footer>
+
+    <script>
+        const data = [
+            { th: "ว่างจากเวร", en: "Free from Enmity" },
+            { th: "ว่างจากปฏิฆะ", en: "Free from Resentment" },
+            { th: "เมตตาไม่มีประมาณ", en: "Boundless Compassion" },
+            { th: "ไม่มีเรา... ไม่มีเขา", en: "No Self... No Others" }
+        ];
+
+        let index = 0;
+        const content = document.getElementById('content');
+        const thElement = document.getElementById('text-th');
+        const enElement = document.getElementById('text-en');
+
+        function updateMeditation() {
+            content.style.opacity = 0;
+
+            setTimeout(() => {
+                thElement.innerText = data[index].th;
+                enElement.innerText = data[index].en;
+                content.style.opacity = 1;
+                index = (index + 1) % data.length;
+            }, 2000);
+        }
+
+        updateMeditation();
+        // 120,000 ms = 2 minutes
+        setInterval(updateMeditation, 120000);
+    </script>
+</body>
+</html>
