@@ -1,4 +1,4 @@
-# ZeroMetta-
+# ZeroMetta
 Meditation of Boundless Compassion
 # ☸️ Digital Sunyata Meditation
 
